@@ -1,4 +1,4 @@
-// to find the greatest number from 3 numbers
+// greatest number from 3 numbers
 #include <iostream>
 using namespace std;
 int main(){
