@@ -1,0 +1,24 @@
+#include <stdio.h>>
+#include <string.h>
+void countevenodd(int *arr, int *n, int *counteven,int *countodd){
+   for (int i = 0; i < *n; i++)
+   {
+       if((*arr[i])/2==0){
+           *counteven++;
+       }
+       else{
+           *countodd++;
+       }
+   }
+   
+}
+int main(){
+    int n;
+    scanf("%d", &n);
+    int arr[n], counteven=0, countodd=0;
+    countevenodd(arr,&n, &counteven, &countodd);
+    printf("Count of even: %d", counteven);
+    printf("Count of odd: %d", countodd);
+    return 0;
+
+}

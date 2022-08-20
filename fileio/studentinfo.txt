@@ -1,0 +1,6 @@
+Name: hitesh
+Gender: mmale
+Age: 12
+Name: akash
+Gender: male
+Age: 34
