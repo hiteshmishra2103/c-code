@@ -1,9 +1,12 @@
 {
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
+        "*.ejs": "html",
+        "*.dart": "dart",
         "iostream": "cpp",
         "ostream": "cpp",
         "string": "cpp",
-        "array2": "c"
+        "array2": "c",
+        "random": "cpp"
     }
 }

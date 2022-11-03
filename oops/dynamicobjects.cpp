@@ -1,37 +1,61 @@
 #include <iostream>
-using namespace std; 
+using namespace std;
 
-class bankdeposit{
-    int principal; 
-    int interest;
-    float interestrate;
-    float returnvalue;
+class BankDeposit
+{
+    int principal;
+    int years;
+    float interestRate;
+    float returnValue;
 
-    public:
-        bankdeposit(){};
-        bankdeposit(int p, int y, float r);
-        bankdeposit(int p, int y, int r);
+public:
+    BankDeposit() {}
+    BankDeposit(int p, int y, float r);
+    BankDeposit(int p, int y, int r);
+    void show();
 };
 
-bankdeposit :: bankdeposit(int p, int y, float r){
-principal=p;
-years=y;
-interestRate=r;
-returnvalue=principal;
-for (int i = 0; i < y; i++)
+BankDeposit::BankDeposit(int p, int y, float r)
 {
-    returnvalue=returnvalue*(1+r);
+    principal = p;
+    years = y;
+    interestRate = r;
+    returnValue = principal;
+    for (int i = 0; i < y; i++)
+    {
+        returnValue = returnValue * (1 + r);
+    }
+}
+BankDeposit::BankDeposit(int p, int y, int r)
+{
+    principal = p;
+    years = y;
+    interestRate = r;
+    returnValue = principal;
+    for (int i = 0; i < y; i++)
+    {
+        returnValue = returnValue * (1 + float(r / 100));
+    }
 }
 
-}
-bankdeposit :: bankdeposit(int p, int y, int r){
-principal=p;
-years=y;
-interestRate=float(r)/100;
-returnvalue=principal;
-for (int i = 0; i < y; i++)
+void BankDeposit::show()
 {
-    returnvalue=returnvalue*(1+r);
+    cout << endl
+         << "principal amount was: " << principal << endl
+         << " return value after" << years << " is " << returnValue << endl;
 }
 
+int main()
+{
+
+    BankDeposit bd1, bd2, bd3;
+    int p;
+    int y;
+    float r;
+    int R;
+
+    cout << "enter the value of p, y and r: " << endl;
+    cin >> p >> y >> r;
+    bd1 = BankDeposit(p, y, r);
+    bd1.show();
 }

@@ -37,7 +37,7 @@ int delete (int arr[], int rear, int front)
     {
         printf("Deleted element=%d", arr[front]);
 
-            if (front == max - 1 && rear != max - 1)
+        if (front == max - 1 && rear != max - 1)
         {
             front = 0;
         }
@@ -74,29 +74,31 @@ void display(int arr[], int rear, int front)
         }
     }
 }
+
 int main()
 {
-int front=-1,rear=-1,arr[max], ch;
-do{
-    printf("Enter 1 for insert, Enter 2 for delete, Enter 3 for display, Enter 4 for exit.");
-    printf("Enter your choice: ");
-    scanf("%d", &ch);
-    switch (ch)
+    int front = -1, rear = -1, arr[max], ch;
+    do
     {
-    case 1:
-        int rear=insert(arr, rear, front);
-        break;
-    case 2:
-        front=delete(arr, rear, front);
-        break;
-    case 3:
-        display(arr, rear, front);
-        break;
-    case 4:
-        exit(0);
-    
-    default:
-        break;
+        printf("Enter 1 for insert, Enter 2 for delete, Enter 3 for display, Enter 4 for exit.");
+        printf("Enter your choice: ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+        case 1:
+            int rear = insert(arr, rear, front);
+            break;
+        case 2:
+            front = delete (arr, rear, front);
+            break;
+        case 3:
+            display(arr, rear, front);
+            break;
+        case 4:
+            exit(0);
+
+        default:
+            break;
+        }
     }
-}
 }
