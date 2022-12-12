@@ -49,20 +49,24 @@ node *insert(node *head)
     {
         head = p;
     }
-    else{
-        node* temp=head;
-        while(temp!=NULL){
-            temp=temp->next;
+    else
+    {
+        node *temp = head;
+        while (temp != NULL)
+        {
+            temp = temp->next;
         }
-        temp->next=NULL;
+        temp->next = NULL;
     }
     return head;
 }
 
-void display(node* head){
-    node* temp=head;
-    while(temp!=NULL){
-        printf(("%d", temp->info)); 
-        temp=temp->next;
+void display(node *head)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        printf(("%d", temp->info));
+        temp = temp->next;
     }
 }
