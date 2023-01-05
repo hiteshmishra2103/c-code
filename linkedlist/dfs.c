@@ -23,6 +23,7 @@ void DFS(int adj[][max], int visited[], int start)
                 printf("%c-", i + 65);
                 visited[i] = 1;
                 break;
+            
             }
         }
         if (i == max)
