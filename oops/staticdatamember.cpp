@@ -1,39 +1,42 @@
 #include <iostream>
 using namespace std;
 
-class Employee{
+class employee
+{
     int id;
-    static int count;//static variable are initialized to 0 by default. 
-    public:
-        void setdata(void){
-            cout<<"Enter the id:"<<endl;
-            cin>>id;
-            count++;
-        }
-        void getdata(void){
-            cout<<"The id of this employee is "<<id<<" and this is employee number: "<< count <<endl;
-        }
-        static void getcount(void){
-            cout<<"The value of count is "<<count<<endl;
-        }
+    static int count;
+
+public:
+
+    void setData()
+    {
+        cout << "Enter the id of the employee: ";
+        cin >> id;
+        count++;
+    }
+
+    void getData()
+    {
+        cout << "this is employee number: " << count << endl;
+    }
+
+    static void count()
+    {
+        count++;
+    }
 };
 
-int Employee :: count=1000; 
+int employee::count; // default value is 0
 
-int main(){
-    Employee harry, rohan, lovish;
-    harry.setdata();
-    harry.getdata();
+int main()
+{
+    employee a, b, c;
+    a.setData();
+    a.getData();
 
-    Employee :: getcount();
+    b.setData();
+    b.getData();
 
-    rohan.setdata();
-    rohan.getdata();
-    Employee :: getcount();
-    
-    lovish.setdata();
-    lovish.getdata();
-    Employee :: getcount();
-
-    return 0;
+    c.setData();
+    c.getData();
 }

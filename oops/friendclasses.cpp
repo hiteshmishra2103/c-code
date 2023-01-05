@@ -1,18 +1,25 @@
-//Properties of friend functions
-// 1. Not in the scope of the class, not the part of class.
-// 2. friend functions means that non members complex function is allowed to do anything
-// with the private members of the classes or can access private objects of classes.
-// 3. Since it is not in the scope of the class it can't be called from the object of that
-// class. c1.sumcomplex(c2,c2)=> Invalid
-// 4. Can be invoked without the help of any object.
-// 5. Usually contains objects as arguments.  
-
 #include <iostream>
 using namespace std;
+
+// forward declaration of class complex
+class complex;
+
+class calculator
+{
+public:
+    int add(int a, int b)
+    {
+        return (a + b);
+    }
+
+    int sumRealComplex(complex, complex);
+
+};
 
 class complex
 {
     int a, b;
+    friend int calculator::sumRealComplex(complex, complex);
 
 public:
     void setnumber(int n1, int n2)
@@ -24,16 +31,20 @@ public:
     friend complex sumcomplex(complex o1, complex o2);
 
     void printnumber(void)
-    
+
     {
         cout << "Your number is: " << a << "+" << b << "i" << endl;
     }
 };
 
+int calculator::sumRealComplex(complex o1, complex o2){
+    return (o1.a+o2.a);
+};
+
 complex sumcomplex(complex o1, complex o2)
 {
     complex o3;
-    o3.setnumber((o1.a + o2.a), (o1.b+o2.b));
+    o3.setnumber((o1.a + o2.a), (o1.b + o2.b));
     return o3;
 }
 

@@ -1,7 +1,17 @@
 #include <iostream>
 using namespace std;
 
-class employee
+// // you can declare objects along with class declarations
+// 👇
+// class h
+// {
+//     int a, b, c;
+
+// public:
+//     int aa;
+// }t,d;
+
+ class employee
 {
 private:
     int a, b, c;
