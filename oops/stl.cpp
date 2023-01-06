@@ -1,3 +1,73 @@
+///---------class templates with multiple parameters
+
+// #include <iostream>
+// using namespace std;
+
+// template<class t1, class t2>
+
+// class myclass{
+//     public:
+//         t1 data1;
+//         t2 data2;
+//         void display(){
+//             cout<<this->data1<<" "<<this->data2<<endl;
+//         }
+// };
+
+// int main(){
+
+//     myclass <int, char> obj;
+//     // myclass <int, float> obj;
+//     obj.data1=2;
+//     obj.data2=1.2;
+//     obj.display();
+    
+//     return 0;
+// }
+
+// //----Templates with default data types in cpp------------
+
+// #include <iostream>
+// using namespace std;
+
+// template<class t1=int, class t2=char>
+
+// class myclass{
+//     public:
+//         t1 data1;
+//         t2 data2;
+//         void display(){
+//             cout<<this->data1<<" "<<this->data2<<endl;
+//         }
+// };
+
+// int main(){
+
+//     myclass<> obj;
+//     // myclass <int, float> obj;
+//     obj.data1=2;
+//     obj.data2='c';
+//     obj.display();
+    
+//     return 0;
+// }
+
+
+#include <iostream>
+using namespace std;
+
+template <class t1, class t2>   
+
+float funcavg(t1 a,  t2 b){
+    return float(a+b)/2;
+}
+
+int main(){
+    float a;
+    a=funcavg(1,2);
+    cout<<a<<endl;
+}
+
 // #include <iostream>
 // using namespace std;
 

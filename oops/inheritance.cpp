@@ -229,6 +229,203 @@
 //     }
 // };
 
+// ////--------------------------------------Ambiguity resolution
+
+// #include <iostream>
+// using namespace std;
+
+// class base1
+// {
+// public:
+//     void greet()
+//     {
+//         cout << "How are you?" << endl;
+//     }
+// };
+
+// class base2
+// {
+//     public:
+//     void greet()
+//     {
+//         cout << "kaise ho?" << endl;
+//     }
+// };
+
+// class derived : public base1, public base2
+// {
+//     int a;
+
+// public:
+//     void greet()
+//     {
+//        base1 :: greet();
+//     }
+// };
+
+// class a{
+//     public:
+//         void say(){
+//             cout<<"Hello"<<endl;
+//         }
+// };
+
+// class b{
+//     public:
+//         void say(){
+//             cout<<"Namaskar"<<endl;
+//         }
+// };
+
+// class c: public a{
+//     public:
+//         void say(){
+//             cout<<"Hola!"<<endl;
+//         }
+// };
+
+// int main()
+// {
+//     derived d;
+//     d.greet();
+//     c ab;
+//     ab.say();
+//     return 0;
+// }
+
+// ////-------------------Virtual base class---------------------------
+
+// #include <iostream>
+// using namespace std;
+
+// class student
+// {
+// protected:
+//     int roll;
+
+// public:
+//     void setroll(int a)
+//     {
+//         roll = a;
+//     }
+//     void printroll()
+//     {
+//         cout << "Your roll: " << roll << endl;
+//     }
+// };
+
+// class test : virtual public student
+// {
+// protected:
+//     float maths, physics;
+
+// public:
+//     void setmarks(float m, float p)
+//     {
+//         maths = m;
+//         physics = p;
+//     }
+
+//     void printmarks()
+//     {
+//         cout << "Your result: "
+//              << "maths: " << maths << endl
+//              << "physics: " << physics << endl;
+//     }
+// };
+
+// class sports : virtual public student
+// {
+// protected:
+//     float score;
+
+// public:
+//     void setscore(float sc)
+//     {
+//         score = sc;
+//     }
+//     void print()
+//     {
+//         cout << "Your pt score is: " << score << endl;
+//     }
+// };
+
+// class result:public test, public sports{
+//     private:
+//         float total;
+//     public:
+//         void display(){
+//             cout<<"total: "<<maths+physics+score<<endl;
+//             printroll();
+//             printmarks();
+//             print();
+//         }
+// };
+
+// ////------------------------CONSTRUCTORS IN DERIVED CLASS IN CPP--------------------------------
+
+// #include <iostream>
+// using namespace std;
+
+// // order of constructors execution:👇
+
+// class base1
+// {
+//     int data1;
+
+// public:
+//     base1(int i)
+//     {
+//         data1 = i;
+//         cout << "Base1 class constructor called!" << endl;
+//     }
+//     void printData()
+//     {
+//         cout << "The value of data is: " << data1 << endl;
+//     }
+// };
+
+// class base2
+// {
+//     int data2;
+
+// public:
+//     base2(int i)
+//     {
+//         data2 = i;
+//         cout << "Base2 class constructor called!" << endl;
+//     }
+//     void printData()
+//     {
+//         cout << "The value of data is: " << data2 << endl;
+//     }
+// };
+
+// class derived : public base1, public base2
+// {
+//     int derived1, derived2;
+
+// public:
+//     derived(int a, int b, int c, int d):base1(a), base2(b)
+//     {
+//         derived1=c;
+//         derived2=d;
+//         cout<<"Derived constructor called!"<<endl;
+//     }
+// };
+
+// int
+// main()
+// {
+
+// derived king(1,2,3,4);
+//     return 0;
+// }
+
+
+//-------ARRAY OF OBJECTS USING POINTERs------------------------
+
+
 // int
 // main()
 // {
@@ -461,328 +658,3 @@
 //     return 0;
 // }
 
-// #include <iostream>
-// using namespace std;
-
-// class base
-// {
-// public:
-//     int varbase;
-//     void display()
-//     {
-//         cout << "Displaying base class variable varbase: " << varbase << endl;
-//     }
-// };
-
-// class derived : public base
-// {
-// public:
-//     int varderived;
-//     void display()
-//     {
-//         cout << "Displaying base class variable varbase: " << varbase << endl;
-//         cout << "Displaying derived class variable varderived: " << varderived << endl;
-//     }
-// };
-
-// int main()
-// {
-//     base objbase;
-//     base *basePointer = &objbase;
-//     derived objderived;
-//     basePointer = &objderived; // pointer base class pointer to derived class
-//     basePointer->varbase = 34;
-//     basePointer->display();
-
-//     derived *derivedPointer;
-//     derivedPointer = &objderived;
-//     derivedPointer->varderived = 98;
-//     derivedPointer->display();
-//     return 0;
-// }
-
-// #include <iostream>
-// using namespace std;
-
-// class base{
-//     public:
-//         int varbase=1;
-//         virtual void display(){
-//                 cout<<"Displaying base class variable base class: "<<varbase<<endl;
-//         }
-// };
-
-// class derived:public base{
-//     public:
-//         int varderived=2;
-//         void display(){
-//             cout<<"Displaying base class variable varbase: "<<varbase<<endl;
-//             cout<<"Displaying derived class varibale varderived: "<<varderived<<endl;
-//         }
-// };
-
-// int main(){
-
-// base* basepointer;
-// base objbase;
-// derived objderived;
-
-// // basepointer =&objbase;
-// basepointer =&objderived;
-// basepointer->display();
-// return 0;
-
-// }
-
-//------------------------------------------Virtual functions in c++-----------------------------//
-
-// #include <iostream>
-// #include <cstring>
-// using namespace std;
-
-// class cwh
-// {
-// protected:
-//     string title;
-//     float rating;
-
-// public:
-//     cwh(string s, float r)
-//     {
-//         title = s;
-//         rating = r;
-//     }
-//     virtual void display()
-//     {
-//     }
-// };
-
-// class cwhvideo : public cwh
-// {
-//     int videoLength;
-
-// public:
-//     cwhvideo(string s, float r, int vl) : cwh(s, r)
-//     {
-//         videoLength = vl;
-//     }
-//     void display()
-//     {
-//         cout << "Good video with title: " << title << endl;
-//         cout << "Ratings: " << rating << endl;
-//         cout << "length of video is: " << videoLength << endl;
-//     }
-// };
-
-// class cwhText : public cwh
-// {
-//     int words;
-
-// public:
-//     cwhText(string s, float r, int wc) : cwh(s, r)
-//     {
-//         words = wc;
-//     }
-//     void display()
-//     {
-//         cout << "Good article with title: " << title << endl;
-//         cout << "Ratings: " << rating << endl;
-//         cout << "length of article is: " << words << endl;
-//     }
-// };
-
-// int main()
-// {
-//     string title;
-//     float rating, vlen;
-//     int words;
-
-//     // for cwh video
-//     title = "Django tutorial";
-//     vlen = 4.50;
-//     rating = 4.5;
-//     cwhvideo djvideo(title, rating, vlen);
-//     djvideo.display();
-
-//     cout << endl;
-//     title = "Django tutorial text";
-//     words = 500;
-//     rating = 4.9;
-//     cwhvideo djtext(title, rating, words);
-//     djtext.display();
-
-//     cwh *tuts[2];
-//     tuts[0] = &djvideo;
-//     tuts[1] = &djtext;
-
-//     cout << endl;
-//     tuts[0]->display();
-//     cout << endl;
-//     tuts[1]->display();
-// }
-
-// friend functions example
-
-// #include <iostream>
-// using namespace std;
-
-// class king
-// {
-//     int a = 100;
-
-// public:
-//     void display()
-//     {
-//         cout << "This is king!" << endl;
-//     }
-//     friend void singham(king x);
-// };
-
-// void singham(king x)
-// {
-//     cout << "This is singham!" << endl;
-//     cout << "value of a is: " << x.a << endl;
-// }
-
-// int main()
-// {
-//     king a;
-//     a.display();
-//     singham(a);
-//     return 0;
-// }
-
-// //Member friend functions
-// #include <iostream>
-// using namespace std;
-
-// //forward declaration
-// class Complex;
-
-// class Calculator
-// {
-//     int a, b;
-// public:
-//     int add(int a, int b)
-//     {
-//         return a + b;
-//     }
-//     int sumRealComplex(Complex, Complex);
-// };
-
-// class Complex
-// {
-//     int a, b;
-//     //Individually declaring functions as private
-//     friend int Calculator::sumRealComplex(Complex o1, Complex o2);
-
-//     //Declaring the entire calculator class as friend
-//     //this will allow all the functions of Calulator to access the private data of Complex class
-//     friend class Calculator;
-
-// public:
-//     void setNumber(int n1, int n2)
-//     {
-//         a = n1;
-//         b = n2;
-//     }
-//     void printNumber()
-//     {
-//         cout << "Your number is:  " << a << " + " << b << "i" << endl;
-//     }
-// };
-
-// int Calculator::sumRealComplex(Complex o1, Complex o2){
-//     return (o1.a+o2.a);
-// };
-
-// int main(){
-//     return 0;
-// }
-
-//-----------------Abstract base class and pure virtual functions in c++---------------------------//
-
-// #include <iostream>
-// #include <cstring>
-// using namespace std;
-
-// class cwh
-// {
-// protected:
-//     string title;
-//     float rating;
-
-// public:
-//     cwh(string s, float r)
-//     {
-//         title = s;
-//         rating = r;
-//     }
-//     virtual void display()=0;//do-nothing function or pure virtual function
-// };
-
-// class cwhvideo : public cwh
-// {
-//     int videoLength;
-
-// public:
-//     cwhvideo(string s, float r, int vl) : cwh(s, r)
-//     {
-//         videoLength = vl;
-//     }
-//     void display()
-//     {
-//         cout << "Good video with title: " << title << endl;
-//         cout << "Ratings: " << rating << endl;
-//         cout << "length of video is: " << videoLength << endl;
-//     }
-// };
-
-// class cwhText : public cwh
-// {
-//     int words;
-
-// public:
-//     cwhText(string s, float r, int wc) : cwh(s, r)
-//     {
-//         words = wc;
-//     }
-//     void display()
-//     {
-//         cout << "Good article with title: " << title << endl;
-//         cout << "Ratings: " << rating << endl;
-//         cout << "length of article is: " << words << endl;
-//     }
-// };
-
-// int main()
-// {
-//     string title;
-//     float rating, vlen;
-//     int words;
-
-//     // for cwh video
-//     title = "Django tutorial";
-//     vlen = 4.50;
-//     rating = 4.5;
-//     cwhvideo djvideo(title, rating, vlen);
-//     djvideo.display();
-
-//     cout << endl;
-//     title = "Django tutorial text";
-//     words = 500;
-//     rating = 4.9;
-//     cwhText djtext(title, rating, words);
-//     djtext.display();
-
-//     cwh *tuts[2];
-//     // tuts[0] = &djvideo;
-//     tuts[1] = &djtext;
-
-//     // cout << endl;
-//     // tuts[0]->display();
-//     cout << endl;
-//     tuts[1]->display();
-
-//     return 0;
-// }
