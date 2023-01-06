@@ -1,3 +1,245 @@
+// // //-----------------Inheritance first code------------------------
+
+// // private members are never inherited
+
+// #include <iostream>
+// using namespace std;
+
+// // base class
+// class employee
+// {
+//     float salary;
+
+// public:
+//     int id;
+//     employee(){};
+//     employee(int inpid)
+//     {
+//         inpid = id;
+//         salary = 2323;
+//     }
+// };
+
+// class programmer : public employee
+// {
+// public:
+//     programmer(int inpid)
+//     {
+//         id = inpid;
+//     }
+
+//     void setData(int inpid){
+//         id = inpid;
+//     }
+
+//     int languageCode = 9;
+
+//     void getData()
+//     {
+//         cout << "The id is: " << id << endl;
+//     }
+// };
+
+// int main()
+// {
+//     programmer skillf(1);
+//     skillf.getData();
+//     return 0;
+// }
+
+////-----------------Inheritance second code(SINGLE INHERITANCE)------------------------
+
+// #include <iostream>
+// using namespace std;
+
+// class base
+// {
+//     int data1;
+
+// public:
+//     int data2;
+//     void setData()
+//     {
+//         data1 = 10;
+//         data2 = 20;
+//     }
+//     int getData1()
+//     {
+//         return data1;
+//     }
+//     int getData2()
+//     {
+//         return data2;
+//     }
+// };
+
+// class derived : public base
+// {
+//     int data3;
+
+// public:
+//     void process()
+//     {
+//         data3 = data2 * getData1();
+//     }
+//     void display()
+//     {
+//         cout << "Value of data 1 is: " << getData1()<<endl;
+//         cout << "Value of data 2 is: " << data2<<endl;
+//         cout << "Value of data 3 is: " << data3<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     derived der;
+//     der.setData();
+//     der.process();
+//     der.display();
+//     return 0;
+// }
+
+// ////-----------------Inheritance third code (PROTECTED ACCESS MODIFIER)------------------------
+
+// #include <iostream>
+// using namespace std;
+
+// class base
+// {
+
+// protected:
+//     int a;
+
+// private:
+//     int b;
+// };
+
+// class derived : protected base
+// {
+
+// };
+
+// int main()
+// {
+
+//     return 0;
+// }
+
+// ////-----------------Inheritance third code (MULTILEVEL INHERITANCE)------------------------
+
+// #include <iostream>
+// using namespace std;
+
+// class student
+// {
+// protected:
+//     int roll;
+
+// public:
+//     void setroll(int r)
+//     {
+//         roll = r;
+//     }
+//     void getroll()
+//     {
+//         cout << "The roll number is: " << roll << endl;
+//     }
+// };
+
+// class exam : public student
+// {
+// protected:
+//     float maths;
+//     float physics;
+
+// public:
+//     void setmarks(float m, float p)
+//     {
+//         maths = m;
+//         physics = p;
+//     }
+//     void getmarks()
+//     {
+
+//         cout << "Maths: " << maths << endl;
+//         cout << "Physics: " << physics << endl;
+//     }
+// };
+
+// class result : public exam
+// {
+
+//     float percentage;
+
+// public:
+//     void display()
+//     {
+//         cout << "The percentage is: " << (maths + physics) / 2 << endl;
+//     }
+// };
+
+// int
+// main()
+// {
+//     result king;
+//     king.setroll(1);
+//     king.setmarks(100,33);
+//     king.display();
+
+//     return 0;
+// }
+
+// ////--------------------------------------Multiple inheritance
+
+// #include <iostream>
+// using namespace std;
+
+// class base1
+// {
+// protected:
+//     int base1int;
+
+// public:
+//     void set1(int a)
+//     {
+//         base1int = a;
+//     }
+// };
+
+// class base2
+// {
+// protected:
+//     int base2int;
+
+// public:
+//     void set2(int a)
+//     {
+//         base2int = a;
+//     }
+// };
+
+// class derived : public base1, public base2
+// {
+// public:
+//     void show()
+//     {
+//         cout << "The value of base 1 is: " << base1int << endl;
+//         cout << "The value of base 2 is: " << base2int << endl;
+//         cout << "The sum is: " << base1int + base2int << endl;
+//     }
+// };
+
+// int
+// main()
+// {
+//     derived king;
+//     king.set1(2);
+//     king.set2(2);
+//     king.show();
+
+//     return 0;
+// }
+
 // #include <iostream>
 // #include <cmath>
 // using namespace std;
@@ -293,7 +535,6 @@
 // }
 
 //------------------------------------------Virtual functions in c++-----------------------------//
-
 
 // #include <iostream>
 // #include <cstring>

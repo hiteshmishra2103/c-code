@@ -1,35 +1,46 @@
 #include <iostream>
 using namespace std;
 
-class Number
+// copy constructor: A copy constructor is a
+// member function that initializes an object using another object of the same class
+
+//when no copy constructor is found, then compiler supplies it's own copy constructor to every class
+class number
 {
-    int a, b = 10;
+    int a;
 
 public:
-    Number()
-    {
-        a = 0;
-    }
-    Number(int num)
+    number(){};
+
+    number(int num)
     {
         a = num;
     }
-    Number(&obj){
-        a=obj.b;
+
+    number(number &obj)//copy constructor syntax
+    {
+        cout<<"Copy constructor called!"<<endl;
+        a = obj.a;
     }
 
-        void display()
+    void display()
     {
-        cout << "The number is: " << a << endl;
+        cout << "The number for this object is: " << a << endl;
     }
 };
 
 int main()
 {
-    Number x(100), y, z, a, b;
+    number x(43), y, z,z2;
     x.display();
-    y.display();
-    z.display();
-    a = Number(x);
-    a.display();
+
+    // make an object with resembles exactly as x;
+
+    number z1(x);
+    z1.display();
+
+    z2=x;//copy constructor not called in case of simple assigning an object to other 
+
+    number z3=x;//copy constructor called
+    return 0;
 }

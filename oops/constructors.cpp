@@ -6,30 +6,20 @@
 #include <iostream>
 using namespace std;
 
-class complex
-{
+class complex{
     int a, b;
-
-public:
-    void printnumber(void)
-    {
-        cout << "Your number is: " << a << "+" << b << "i" <<endl;
-    }
-    // constructor is a special member function with same name as of class.
-    // It is automatically invoked whenever an object is created
-    complex(void); // constructor declaration
-    //this is default constructor as it does not take parameters.
+    public:
+        complex(){
+            a=11;
+            b=2;
+        }
+        void get(){
+            cout<<a<<endl<<b;
+        }
 };
 
-complex ::complex(void)
-{
-    a = 0;
-    b = 10;
-}
-
-int main()
-{
-    complex c;
-    c.printnumber();
+int main(){
+    complex c1;
+    c1.get();
     return 0;
 }
